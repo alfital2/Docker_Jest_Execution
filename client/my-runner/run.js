@@ -4,21 +4,25 @@ const { pass, fail } = require('create-jest-runner');
 const URL = 'http://localhost:3000';
 
 module.exports = async ({ testPath }) => {
-  const start = Date.now();
   const contents = fs.readFileSync(testPath, 'utf8');
-  const end = Date.now();
+  const start = Date.now();
+  
+  const res = await axios
+      .post(URL, {
+        fileName: 'test.spec.js',
+        testText: contents,
+      })
 
-  const res = await axios.post(URL);
-  const msg = 'communication works! '+res.data;
+      const end = Date.now();
 
-  return fail({ 
-    start, 
-    end, 
-    test: {
-        path: testPath ,
-        errorMessage:msg
-      } 
-    });
+      return fail({
+        start,
+        end,
+        test: {
+          path: testPath,
+          title: 'failed'
+        },
+      });
 
-
+  
 };
