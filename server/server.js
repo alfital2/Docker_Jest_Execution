@@ -20,6 +20,9 @@ app.post('/', async (req, res) => {
     );
 
     const testResult = fs.readFileSync(TEST_RESULT_FILE, 'utf8');
+
+    fs.unlinkSync(TEST_RESULT_FILE);
+    fs.unlinkSync('test.spec.js');
     res.send(testResult);
   }
 );
