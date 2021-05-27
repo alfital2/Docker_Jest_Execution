@@ -1,4 +1,4 @@
-# Parallelize_jest_execution
+# Docker_Jest_Execution
 
  In this project I integrated and extended a popular test runner in the javascript ecosystem: 
  <a href ="https://github.com/facebook/jest"> jest</a>.
