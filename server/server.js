@@ -25,7 +25,7 @@ app.post('/', async (req, res) => {
       });
       await jest.run(
         // eslint-disable-next-line max-len
-        ` --json --outputFile=${TEST_RESULT_FILE}  --findRelatedTests ${uniqueFileName} --detectOpenHandles `,
+        ` --json --outputFile=${TEST_RESULT_FILE}  --findRelatedTests ${uniqueFileName} `,
     );
 
     const testResult = fs.readFileSync(TEST_RESULT_FILE, 'utf8');
